@@ -1,0 +1,102 @@
+# Okay, here are my VIM AND TMUX Reminder cheatsheet nOTes
+
+
+###################### VIM
+
+Quick movement
+    gg #top of file
+    G # bottom of file
+    H # top of page
+    M # middle of page
+
+    zz # center cursor on screen
+
+    5gg or 5G # goto line 5
+
+    {}
+PANES
+    :sp filename # Open file in new horizontal or vertical split pane
+    :vp filename 
+
+Cntrl-h,J,k,l to move between splits
+
+### BUFFERS
+    :bn # next buffer
+    :bd # close current buffer
+    :bp # previous buffer
+
+Record Macro
+    qa # start recording
+    q # stop
+    @a # run macro
+    @@ # run last macro
+
+Search AND replace
+    :%s/pattern/replace/g # globally
+    :%s/pattern/replace/gc # with confirmation
+
+Replacement editing
+    r # replace single character
+    R # begin insert and overwrite at character
+    xp # transpose characters
+
+    cw  # change word
+    ciw  # change word you are in 
+    ci)  # change all words between the parens !
+    c$ # change to the end of the line 
+
+VISUAL MODE
+    V # start visual marking by line
+
+    then with marked lines you can:
+    U #uppercase
+    u # lowercase
+    ~ # change Case
+    > # shift right
+    < # shift left
+
+    Cntrl-v # Visual Block mode. Allows you to grab at that block
+
+    To comment a group of lines, mark with Visual Block mode, then
+    Cntrl-v, Mark block, Shift-I to insert, type text, ESC
+
+
+
+
+###################### TMUX
+Tmux config file is ~/.tmux.conf
+    Cntrl-a r # reload config
+
+Starting, Attaching and detaching
+    tmux # start new tmux window
+    tmux attach 
+    Cntr-a d # detach
+
+Creating Windows and Moving between them
+    Cntrl-a c # create new window
+    Cntrl-a , # rename current window
+    Cntrl-a & # close current window
+    Cntrl-a n # next window
+    Cntrl-a p # previous window
+    Cntrl-a [0-9] # jump to window number
+
+PANES
+    Cntrl-a - # split horizintally
+    Cntrl-a \ # split vertically
+    Cntrl-a [arrow key] # move between panes
+    Cntrl-a x # close pane
+
+    Cntrl-a { # move current pane to the left in the panes splits, and } to move right. Sick!
+
+    Cntrl-a q # display pane numbers
+    Cntrl-a q [0-9] # move to that pane numberr (have to be quick)
+    
+    Cntrl-a ! #convert pane into a window
+
+    Cntrl-a H,J,K,L # Resize panes as you would expect. Remeber CAPS!
+    Cntrl-a Shift-ArrowKey # As long as you hold shift you can use the arrow keys to resize. better.
+    
+EXTRAS
+    Cntrl-a : # enter command mode
+    :list-keys
+    

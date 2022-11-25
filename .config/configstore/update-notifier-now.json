@@ -1,0 +1,10 @@
+{
+	"optOut": false,
+	"lastUpdateCheck": 1610121593947,
+	"update": {
+		"latest": "21.0.1",
+		"current": "20.1.1",
+		"type": "major",
+		"name": "now"
+	}
+}
