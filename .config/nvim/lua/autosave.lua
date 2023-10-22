@@ -1,12 +1,12 @@
 --
--- Function to auto run go command on write into buffer
+-- Function to auto run command on write into buffer
 -- taken from this video
 -- https://www.youtube.com/watch?v=HlfjpstqXwE&t=6s
 --
 local attach_to_buffer = function(bufnr, command)
     vim.api.nvim_create_autocmd("BufWritePost", {
-        pattern = "*.go",
-        group = vim.api.nvim_create_augroup("GoGroup", {clear = true}),
+        pattern = "*.go,*.py",
+        group = vim.api.nvim_create_augroup("CodeOutputGroup", {clear = true}),
         callback = function()
            
             local append_data = function(_, data)
@@ -24,9 +24,11 @@ local attach_to_buffer = function(bufnr, command)
     })
 end
 
-vim.api.nvim_create_user_command("GoAutoRun", function()
+vim.api.nvim_create_user_command("AutoRun", function()
    print("Run echo nvim_get_current_buf() to find buffer number") 
    local bufnr = vim.fn.input "Target Buffer Number: "
-    attach_to_buffer(tonumber(bufnr), {"go" ,"run", "."})
+   local cmd = vim.split(vim.fn.input "Command to produce output: {?}: ", " ")
+    attach_to_buffer(tonumber(bufnr), cmd)
+    print("Done.")
 end, {})
 

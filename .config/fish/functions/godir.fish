@@ -7,6 +7,10 @@ function godir
             echo "d: Downloads"
             echo "sm: Strudel Media"
             echo "python: ~/src/python"
+            echo "proj: $NOTES/proj"
+            echo "area: $NOTES/area"
+            echo "inbox: $NOTES/inbox"
+            echo "n: $NOTES/n"
         return
     end
 
@@ -23,6 +27,18 @@ function godir
         case 'sm'
             echo "Strudel Media"
             cd /Users/kmcbride/Documents/StrudelMediaLive
+        case 'proj'
+            echo "$NOTES/proj"
+            cd $NOTES/proj && ls
+        case 'area'
+            echo "$NOTES/area"
+            cd $NOTES/area && ls
+        case 'inbox'
+            echo "$NOTES/inbox"
+            cd $NOTES/inbox && ls
+        case 'n'
+            echo "$NOTES"
+            cd $NOTES && ls
         case 'python'
             echo "Python Source Dir"
             cd ~/src/python
