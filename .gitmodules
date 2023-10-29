@@ -1,0 +1,3 @@
+[submodule "Sites/hugo-ataraxia/content"]
+	path = Sites/hugo-ataraxia/content
+	url = https://github.com/kaimcbride/vimwiki.git

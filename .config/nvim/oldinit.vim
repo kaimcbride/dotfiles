@@ -111,9 +111,9 @@ nnoremap <leader>ng <cmd>Neorg generate-workspace-summary<cr>
 " 
 " vimwiki bindings
 nnoremap <leader>wva :e ~/wiki/area/index.md<CR>
-nnoremap <leader>wvp :e ~/wiki/proj/index.md<CR>
+nnoremap <leader>wvp :e ~/wiki/projects/index.md<CR>
 nnoremap <leader>wvr :e ~/wiki/res/index.md<CR>
-"nnoremap <leader>wvt :VimwikiTable 
+nnoremap <leader>wvt :VimwikiTable 
 
 " When in Insert Mode, be able to use C-l to jump one character
 " to the right and skip past a closing " or ) or } 
@@ -121,7 +121,6 @@ inoremap <C-L> <C-\><C-O><Esc><Right>
 
 " Add the open/close curly braces and start typing in the middle line. Yes!
 inoremap <C-F> {<CR><CR>}<UP><TAB>
-
 " These are for the terminal
 tnoremap ˙ <C-\><C-N><C-w>h
 tnoremap ∆ <C-\><C-N><C-w>j
@@ -169,12 +168,23 @@ hi TSEmphasis gui=italic
 " Configure vimwiki
 let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': 'md'},
             \ {'path': '~/wiki/res',  'name': 'res', 'syntax': 'markdown', 'ext': 'md'},
-            \ {'path': '~/wiki/proj', 'name': 'proj',  'syntax': 'markdown', 'ext': 'md'},
+            \ {'path': '~/wiki/projects', 'name': 'projects',  'syntax': 'markdown', 'ext': 'md'},
             \ {'path': '~/wiki/area', 'name': 'area',  'syntax': 'markdown', 'ext': 'md'},
-            \ {'path': '~/wiki/arch', 'name': 'arch',  'syntax': 'markdown', 'ext': 'md'}]
+            \ {'path': '~/wiki/archive', 'name': 'archive',  'syntax': 'markdown', 'ext': 'md'}]
 
-" get the .md extension added to the links to wiki files
-let g:vimwiki_markdown_link_ext = 1
 
 let g:floaterm_keymap_toggle = '<F12>'
+
+" Setup TwidleCase function
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
