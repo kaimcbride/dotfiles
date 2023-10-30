@@ -1,6 +1,4 @@
-vim.g.keymapleader = " "
-
--- :Ex
+vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>b", vim.cmd.Ex)
 
 vim.keymap.set("n",  "<leader>vr", ":source ~/.config/nvim/init.lua<CR>") 

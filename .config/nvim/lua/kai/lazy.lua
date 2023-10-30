@@ -54,6 +54,8 @@ require("lazy").setup({
 	{'L3MON4D3/LuaSnip'}, 
 
 
+	{'ThePrimeagen/harpoon'}, 
+    
     {
         'vimwiki/vimwiki',
         init = function()
