@@ -1,6 +1,8 @@
 vim.opt.relativenumber = true
 vim.opt.nu = true
 
+vim.opt.guicursor = ""
+
 vim.opt.hlsearch = false 
 vim.opt.incsearch = true
 -- vim.opt.hidden = true
@@ -28,3 +30,6 @@ vim.opt.updatetime = 50
 vim.opt.completeopt = {"menuone" , "noinsert" , "noselect"}
 vim.opt.ignorecase = true
 vim.opt.autoindent = true
+
+-- send to the clipboard
+vim.opt.clipboard:append { "unnamedplus" }
